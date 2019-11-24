@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-mac = "44:38:39:ff:ef:57"
+import sys
 
 def prepare_mac(mac_address):
     parsed_mac = mac_address.replace(":", "")
@@ -10,4 +10,5 @@ def prepare_mac(mac_address):
     return parsed_mac
 
 
-print(prepare_mac(mac))
+if __name__ == "__main__":
+    print(prepare_mac(sys.argv[1]))
