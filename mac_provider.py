@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
-import sys
+import argparse
+
 
 def prepare_mac(mac_address):
     parsed_mac = mac_address.replace(":", "")
@@ -10,5 +11,11 @@ def prepare_mac(mac_address):
     return parsed_mac
 
 
+
+
 if __name__ == "__main__":
-    print(prepare_mac(sys.argv[1]))
+    parser = argparse.ArgumentParser()
+    parser.add_argument("mac", help="a mac address to do a search on")
+    args = parser.parse_args()
+
+    print(prepare_mac(args.mac))
