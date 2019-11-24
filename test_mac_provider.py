@@ -17,3 +17,11 @@ def test_make_request():
     resp = mac_provider.make_request(mac)
 
     assert resp == json.loads(API_RESPONSE)
+
+
+@responses.activate
+def test_make_request_bad():
+    responses.add(responses.GET, API_MOCK, json=json.loads(API_RESPONSE), status=500)
+    resp = mac_provider.make_request(mac)
+
+    assert resp == False
