@@ -7,19 +7,11 @@ import requests
 import argparse
 
 
-def prepare_mac(mac_address):
-    parsed_mac = mac_address.replace(":", "")
-    parsed_mac = parsed_mac.replace("-", "")
-    parsed_mac = parsed_mac.replace(".", "")
-
-    return parsed_mac
-
-
 def make_request(mac_address):
     params = {
         "apiKey" : os.environ['API_KEY'],
         "output" : 'json',
-        "search" : prepare_mac(mac_address)
+        "search" : mac_address
     }
 
     response = requests.get(url=os.environ['API_ADDRESS'], params=params)
