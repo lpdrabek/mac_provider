@@ -1,0 +1,11 @@
+FROM python:3.7
+
+ENV API_ADDRESS "https://api.macaddress.io/v1"
+ENV API_KEY "ENTER_YOUR_KEY_HERE"
+
+RUN  mkdir -p /app
+COPY mac_provider.py /app
+COPY requirements.txt /app
+WORKDIR /app
+RUN pip install -r requirements.txt
+ENTRYPOINT ["python", "mac_provider.py"]
