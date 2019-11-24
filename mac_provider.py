@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import os
+import requests
 import argparse
 
 
@@ -11,6 +13,21 @@ def prepare_mac(mac_address):
     return parsed_mac
 
 
+def make_request(mac_address):
+    params = {
+        "apiKey" : os.environ['API_KEY'],
+        "output" : 'json',
+        "search" : prepare_mac(mac_address)
+    }
+
+    response = requests.get(url=os.environ['API_ADDRESS'], params=params)
+
+    if response.status_code != 200:
+        print("API returned HTTP {}".format(response.status_code), file=sys.stderr)
+        return False
+    else:
+        return response.text
+
 
 
 if __name__ == "__main__":
@@ -18,4 +35,4 @@ if __name__ == "__main__":
     parser.add_argument("mac", help="a mac address to do a search on")
     args = parser.parse_args()
 
-    print(prepare_mac(args.mac))
+    print(make_request(args.mac))
