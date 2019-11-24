@@ -4,7 +4,7 @@ A Python3 script retrieving company name from a MAC address by accessing [macadd
 
 ## How to run it
 ### Docker
-1. Replace `ENTER_YOUR_KEY_HERE` with your API key from macaddress.io
+1. Replace `ENTER_YOUR_KEY_HERE` with your API key from macaddress.io in `Dockerfile.template`
 2. Rename `Dockerfile.template` to `Dockerfile` - `mv Dockerfile.template Dockerfile`
 3. Build your image `docker build .`
 4. Run the  script with `docker run IMAGE_CODE MAC_ADDRESS` replacing IMAGE_CODE and MAC_ADDRESS with actual values
@@ -22,3 +22,6 @@ then install requirements by running
 Run the code with 
 `python3 mac_provider.py MAC_ADDRESS`
 
+## How to test it
+1. Run `pip install -r requirements-dev.txt`
+2. Run `pytest` in repository root directory
