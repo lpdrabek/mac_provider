@@ -2,6 +2,9 @@
 
 A Python3 script retrieving company name from a MAC address by accessing [macaddress.io](https://macaddress.io/ "macaddress.io") API.
 
+
+[![Build Status](https://app.travis-ci.com/lpdrabek/mac_provider.svg?branch=master)](https://app.travis-ci.com/lpdrabek/mac_provider)
+
 ## How to run it
 ### Docker
 1. Copy `Dockerfile.template` as `Dockerfile` - `cp Dockerfile.template Dockerfile`
